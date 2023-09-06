@@ -39,7 +39,6 @@ export const Sidebar = () => {
                 E
             </div>
             <div />
-            <NavButton text="Documentation" to="/documentation" icon={<Book size={24} />} />
             <NavButton text="Monitoring" to="/monitoring" icon={<Activity size={24} />} />
             <NavButton text="Tasks" to="/tasks" icon={<List size={24} />} />
             <NavButton text="Utilities" to="/utilities" icon={<Wrench size={24} />} />

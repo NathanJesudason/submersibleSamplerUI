@@ -58,17 +58,14 @@ function taskToFormValues(task: TaskServer | undefined, defaultValues: FormValue
         date: toDateString(task.schedule),
         time: toTimeString(task.schedule),
         timeBetween: task.timeBetween,
-        valves: task.valves.join(","),
+        pumps: task.pumps.join(","),
         notes: task.notes,
     };
 
     ([
-        "flushTime",
         "sampleTime",
-        "sampleVolume",
-        "samplePressure",
-        "dryTime",
         "preserveTime",
+        "preserveDrawTime",
     ] as const).forEach(f => {
         result[f] = task[f];
     });
