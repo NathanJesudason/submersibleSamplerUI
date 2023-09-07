@@ -67,7 +67,7 @@ export const ValveStatus = ({ className }: { className?: string }) => {
 
     const [top, bottom] = partition(valves, ({ id }) => id < 12);
     return (
-        <Card title="Valve Status" tw="p-0" className={className}>
+        <Card title="Pump Status" tw="p-0" className={className}>
             <ValveCollection valves={top.concat(bottom.reverse())} />
 
             <div tw="grid grid-flow-col gap-8 auto-cols-max">
