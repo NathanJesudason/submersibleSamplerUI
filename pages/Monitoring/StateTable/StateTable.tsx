@@ -9,7 +9,7 @@ import { Card } from "components/modules/Card";
 const states = [
     "idle",
     "sample",
-    "prserve draw",
+    "preserve draw",
     "preserve",
     "stop",
 ];

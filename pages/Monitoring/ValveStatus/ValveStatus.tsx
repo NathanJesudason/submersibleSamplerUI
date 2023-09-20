@@ -73,7 +73,7 @@ export const ValveStatus = ({ className }: { className?: string }) => {
             <div tw="grid grid-flow-col gap-8 auto-cols-max">
                 <div tw="flex items-center mt-8">
                     <div tw="w-4 h-4 mr-2 bg-teal-400 rounded-md"></div>
-                    <div tw="text-sm text-secondary">Current Valve</div>
+                    <div tw="text-sm text-secondary">Current</div>
                 </div>
 
                 <div tw="flex items-center mt-8">
