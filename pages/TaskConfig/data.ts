@@ -89,7 +89,7 @@ export const generalFields: FieldProps[] = [
 
 export const valveFields: FieldProps[] = [
     {
-        name: "Pumps",
+        name: "pumps",
         label: "Pumps",
         sublabel: "Pumps asigned to this task",
         helperText: "Comma-separated pump numbers & ranges: eg. 1,3-8,21",

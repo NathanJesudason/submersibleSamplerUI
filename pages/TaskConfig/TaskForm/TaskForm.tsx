@@ -58,7 +58,7 @@ function taskToFormValues(task: TaskServer | undefined, defaultValues: FormValue
         date: toDateString(task.schedule),
         time: toTimeString(task.schedule),
         timeBetween: task.timeBetween,
-        pumps: task.pumps.join(","),
+        pumps: task.pumps ? task.pumps.join(",") : "0",
         notes: task.notes,
     };
 
@@ -85,13 +85,10 @@ export const TaskForm = ({ highlightSection }: { highlightSection: number }) => 
             date: "2020-12-25",
             time: "12:00",
             timeBetween: 0,
-            valves: "0",
-            flushTime: 0,
+            pumps: "0",
             sampleTime: 0,
-            sampleVolume: 0,
-            samplePressure: 0,
-            dryTime: 0,
             preserveTime: 0,
+            preserveDrawTime: 0,
         })
     );
 
