@@ -126,7 +126,8 @@ export const StatusServerSchema = object({
         .min(0),
     waterDepth: number()
         .min(0),
-    lowBattery: boolean(),
+    lowBattery: number()
+        .min(0),
     sampleVolume: number()
         .min(0)
 });

@@ -25,7 +25,6 @@ const AppContainer = tw.div`flex h-full bg-white debug-screens`;
 const PageContainer = tw.div`flex flex-col w-full h-screen overflow-y-scroll bg-background`;
 const Toolbar = () => {
     const status = useSelector(state => state.status);
-    const lowBattery = status.lowBattery ?? true;
 
     const { utc } = status;
     const localTime = utc ? new Date(Number(utc * 1000)).toLocaleString() : "----";
@@ -33,8 +32,8 @@ const Toolbar = () => {
     return (
         <div tw="grid grid-flow-col items-center gap-4 py-4 px-8 justify-end text-subtitle text-primary">
             <div tw="grid grid-flow-col gap-2 items-center">
-                {lowBattery && "Check Battery Power"}
-                {lowBattery ? <BatteryWarning size={24} /> : <BatteryFull size={24} />}
+                {"Battery Voltage: "}
+                {status.lowBattery ? status.lowBattery.toFixed(1) : "Unknown"}
             </div>
 
             <div>Last Status Update: {localTime}</div>
