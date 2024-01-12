@@ -32,14 +32,13 @@ export const Sidebar = () => {
             <div
                 tw="hidden grid-flow-col gap-4 text-xl lg:grid items-center justify-center mt-8"
                 css={{ letterSpacing: "1rem" }}>
-                <span tw="px-2 py-2 tracking-normal text-white rounded-md bg-accent">E</span>
-                <span>DNA</span>
+                <span tw="px-2 py-2 tracking-normal text-white rounded-md bg-accent">SUB</span>
+                <span>SAMPLER</span>
             </div>
             <div tw="flex items-center w-full text-3xl text-white bg-accent justify-center lg:hidden">
                 E
             </div>
             <div />
-            <NavButton text="Documentation" to="/documentation" icon={<Book size={24} />} />
             <NavButton text="Monitoring" to="/monitoring" icon={<Activity size={24} />} />
             <NavButton text="Tasks" to="/tasks" icon={<List size={24} />} />
             <NavButton text="Utilities" to="/utilities" icon={<Wrench size={24} />} />

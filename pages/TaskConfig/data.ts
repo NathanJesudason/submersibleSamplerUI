@@ -10,7 +10,7 @@ export const FormSchema = object({
     time: string().refine(str => str.match(/\d{1,2}:\d{1,2}/), {
         message: "Time doesn't match the required format: hh:mm (24hr)",
     }),
-    valves: string()
+    pumps: string()
         .nonempty()
         .refine(
             s => s.split(",").every(n => n.split("-").every(n => !isNaN(Number(n)) || n == "-")),
@@ -49,11 +49,8 @@ export const FormSchema = object({
         ),
     timeBetween: number().min(0),
     notes: string().optional(),
-    flushTime: number().min(0),
     sampleTime: number().min(0),
-    sampleVolume: number().min(0),
-    samplePressure: number().min(0),
-    dryTime: number().min(0),
+    preserveDrawTime: number().min(0),
     preserveTime: number().min(0),
 });
 
@@ -92,44 +89,33 @@ export const generalFields: FieldProps[] = [
 
 export const valveFields: FieldProps[] = [
     {
-        name: "valves",
-        label: "Valves",
-        sublabel: "Valves asigned to this task",
-        helperText: "Comma-separated valve numbers & ranges: eg. 1,3-8,21",
+        name: "pumps",
+        label: "Pumps",
+        sublabel: "Pumps asigned to this task",
+        helperText: "Comma-separated pump numbers & ranges: eg. 1,3-8,21",
     },
     {
         name: "timeBetween",
         label: "Time Between",
-        sublabel: "Time until next valve",
+        sublabel: "Time until next pump",
         type: "number",
         helperText: "Unit: second",
     },
 ];
 
-export const flushFields: FieldProps[] = [
-    { name: "flushTime", type: "number", label: "Flush Time", helperText: "Unit: second" },
-    // { name: "flushVolume", type: "number", label: "Flush Volume" },
-];
-
 export const sampleFields: FieldProps[] = [
     { name: "sampleTime", type: "number", label: "Sample Time", helperText: "Unit: second" },
-    { name: "sampleVolume", type: "number", label: "Sample Volume", helperText: "Unit: liter" },
-    { name: "samplePressure", type: "number", label: "Sample Pressure", helperText: "Unit: psi" },
 ];
 
-export const dryFields: FieldProps[] = [
-    { name: "dryTime", type: "number", label: "Dry Time", helperText: "Unit: second" },
-];
 export const preserveFields: FieldProps[] = [
     { name: "preserveTime", type: "number", label: "Preserve Time", helperText: "Unit: second" },
+    { name: "preserveDrawTime", type: "number", label: "Preserve Draw Time", helperText: "Unit: second" },
 ];
 
-export type ConfigSectionName = "general" | "valves" | "flush" | "sample" | "dry" | "preserve";
+export type ConfigSectionName = "general" | "pumps" | "sample" | "preserve";
 export const configFields: Record<ConfigSectionName, { title: string; fields: FieldProps[] }> = {
     general: { title: "General", fields: generalFields },
-    valves: { title: "Valves", fields: valveFields },
-    flush: { title: "Flush", fields: flushFields },
+    pumps: { title: "Pumps", fields: valveFields },
     sample: { title: "Sample", fields: sampleFields },
-    dry: { title: "Dry", fields: dryFields },
     preserve: { title: "Preserve", fields: preserveFields },
 };

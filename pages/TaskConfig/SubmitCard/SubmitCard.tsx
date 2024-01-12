@@ -24,15 +24,12 @@ const mergeWithFormValues = (base: TaskServer, values: FormValues): TaskServer =
     merged.schedule = Math.floor(schedule.getTime() / 1000);
 
     merged.timeBetween = values.timeBetween;
-    merged.valves = getValves(values.valves);
+    merged.pumps = getValves(values.pumps);
 
     ([
-        "flushTime",
         "sampleTime",
-        "samplePressure",
-        "sampleVolume",
-        "dryTime",
         "preserveTime",
+        "preserveDrawTime"
     ] as const).forEach(f => {
         merged[f] = values[f];
     });

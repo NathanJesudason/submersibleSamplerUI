@@ -8,14 +8,9 @@ import { Card } from "components/modules/Card";
 
 const states = [
     "idle",
-    "flush 1",
-    "offshoot clean 1",
-    "flush 2",
     "sample",
-    "offshoot clean 2",
-    "dry",
+    "preserve draw",
     "preserve",
-    "air flush",
     "stop",
 ];
 

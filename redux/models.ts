@@ -72,20 +72,14 @@ export const TaskServerSchema = object({
     schedule: number()
         .int()
         .min(0),
-    valves: array(number().int()),
+    pumps: array(number().int()),
     timeBetween: number()
         .min(0),
     scheduleOnReceived: boolean(),
     notes: string(),
-    flushTime: number()
-        .min(0),
     sampleTime: number()
         .min(0),
-    samplePressure: number()
-        .min(0),
-    sampleVolume: number()
-        .min(0),
-    dryTime: number()
+    preserveDrawTime: number()
         .min(0),
     preserveTime: number()
         .min(0),
