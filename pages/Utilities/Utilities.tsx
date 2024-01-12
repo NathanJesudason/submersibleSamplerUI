@@ -66,7 +66,9 @@ const UpdateRTC = () => (
                 timezoneOffset: new Date().getTimezoneOffset(),
             };
 
-            post("api/rtc/update").withJson(payload).send();
+            post("api/rtc/update").withJson(payload).send().then(() => {
+              alert("RTC Updated");
+            });
         }}
     />
 );
