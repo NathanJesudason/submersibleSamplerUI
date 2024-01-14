@@ -38,6 +38,9 @@ export const KEYS = {
     TASK_VALVES: "valves",
     TASK_TIME_BETWEEN: "timeBetween",
     TASK_NOTES: "notes",
+    TASK_DEPTH: "depth",
+    TASK_TYPE_SCHEDULED: "scheduledTask",
+    TASK_TYPE_DEPTH: "depthTask",
 };
 
 //
@@ -72,6 +75,9 @@ export const TaskServerSchema = object({
     schedule: number()
         .int()
         .min(0),
+    depth: number()
+        .int()
+        .min(0),
     pumps: array(number().int()),
     timeBetween: number()
         .min(0),
@@ -83,6 +89,8 @@ export const TaskServerSchema = object({
         .min(0),
     preserveTime: number()
         .min(0),
+    scheduledTask: boolean(),
+    depthTask: boolean(),
 });
 
 export type TaskServerStatus = "inactive" | "active" | "completed" | "missed";
