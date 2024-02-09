@@ -3,6 +3,8 @@ import z, { string, number, object } from "zod";
 const ValveSchema = number().min(0).max(23);
 
 export const FormSchema = object({
+
+
     name: string().max(24),
     date: string().refine(str => str.match(/(\d{4}-\d{2}-\d{2})/) || str == "", {
         message: "Date doesn't match the required form at: yyyy-mm-dd",
@@ -53,6 +55,9 @@ export const FormSchema = object({
     sampleTime: number().min(0),
     preserveDrawTime: number().min(0),
     preserveTime: number().min(0),
+}).refine(s => s.date != "" || s.depth != 0, {
+    message: "needs to either be executed by time or depth",
+    path: ["depth"]
 });
 
 export type FormValues = z.infer<typeof FormSchema>;
