@@ -4,12 +4,13 @@ const ValveSchema = number().min(0).max(23);
 
 export const FormSchema = object({
     name: string().max(24),
-    date: string().refine(str => str.match(/\d{4}-\d{2}-\d{2}/), {
+    date: string().refine(str => str.match(/(\d{4}-\d{2}-\d{2})/) || str == "", {
         message: "Date doesn't match the required form at: yyyy-mm-dd",
     }),
     time: string().refine(str => str.match(/\d{1,2}:\d{1,2}/), {
         message: "Time doesn't match the required format: hh:mm (24hr)",
     }),
+    depth: number().min(0),
     pumps: string()
         .nonempty()
         .refine(
@@ -69,9 +70,9 @@ export const generalFields: FieldProps[] = [
     {
         name: "date",
         type: "date",
-        label: "Schedule Date",
+        label: "Schedule Date (Optional)",
         sublabel: "Date when to execute this task",
-        helperText: "Format: yyyy-mm-dd",
+        helperText: "Format: mm/dd/yyyy, clear to not execute on time",
     },
     {
         name: "time",
@@ -79,6 +80,13 @@ export const generalFields: FieldProps[] = [
         label: "Schedule Time",
         sublabel: "Time of the day to execute this task",
         helperText: "Format: hh:mm (pm|am)",
+    },
+    {
+        name: "depth",
+        type: "number",
+        label: "Depth (Optional)",
+        sublabel: "depth to execute this task",
+        helperText: "meters, 0 to not execute on depth"
     },
     {
         name: "notes",

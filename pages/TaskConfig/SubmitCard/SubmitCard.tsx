@@ -18,10 +18,18 @@ const mergeWithFormValues = (base: TaskServer, values: FormValues): TaskServer =
     const merged: TaskServer = { ...base };
     merged.name = values.name;
     merged.notes = values.notes ?? "";
+    merged.depth = values.depth;
+    merged.depthTask = values.depth != 0;
 
     const { date, time } = values;
-    const schedule = new Date(`${date}T${time}:00`);
-    merged.schedule = Math.floor(schedule.getTime() / 1000);
+    if(date != ""){
+        const schedule = new Date(`${date}T${time}:00`);
+        merged.schedule = Math.floor(schedule.getTime() / 1000);
+        merged.scheduledTask = true;
+    } else {
+        merged.schedule = 0;
+        merged.scheduledTask = false;
+    }
 
     merged.timeBetween = values.timeBetween;
     merged.pumps = getValves(values.pumps);
@@ -80,6 +88,7 @@ export const SubmitCard = () => {
     }
 
     const saveHandler = handleSubmit(values => {
+        console.log(values.date);
         const merged = mergeWithFormValues(task, values);
         console.log(merged);
         dispatch(updateTask(merged))

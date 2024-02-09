@@ -60,6 +60,7 @@ function taskToFormValues(task: TaskServer | undefined, defaultValues: FormValue
         timeBetween: task.timeBetween,
         pumps: task.pumps ? task.pumps.join(",") : "0",
         notes: task.notes,
+        depth: task.depth
     };
 
     ([
@@ -89,6 +90,7 @@ export const TaskForm = ({ highlightSection }: { highlightSection: number }) => 
             sampleTime: 0,
             preserveTime: 0,
             preserveDrawTime: 0,
+            depth: 0
         })
     );
 
