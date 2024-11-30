@@ -58,7 +58,7 @@ export const ValveCollection = ({ valves }: { valves: Valve[] }) => {
 export const ValveStatus = ({ className }: { className?: string }) => {
     const status = useSelector(state => state.status);
     const valves = useMemo(() => {
-        return times(24, (id: number) => {
+        return times(status.valves ? status.valves.length : 0, (id: number) => {
             return status.valves && id < status.valves.length
                 ? { id, status: status.valves[id] }
                 : { id, status: -1 };
