@@ -1,4 +1,4 @@
-# ednaUI 🚀
+# SubmersibleSamplerUI (Port of ednaUI) 🚀
 
 <div><img src="docs/readme_screenshot.png" width="400px"></div>
 
@@ -18,6 +18,8 @@
 ## 1 About
 
 ednaUI is a browser-based application intended to be used as the primary way for controlling the [ednaServer](https://github.com/OPEnSLab-OSU/eDNA-Server) backend. Uses React, Redux Toolkit, Tailwind CSS, and Webpack.
+
+UI uses Node v10.
 
 - Real-time status monitoring of sensor data and states
 - Task configuration and management

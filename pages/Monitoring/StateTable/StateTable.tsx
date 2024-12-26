@@ -6,13 +6,7 @@ import { capitalize } from "lodash";
 
 import { Card } from "components/modules/Card";
 
-const states = [
-    "idle",
-    "sample",
-    "preserve draw",
-    "preserve",
-    "stop",
-];
+const states = ["idle", "sample", "preserve draw", "preserve", "stop"];
 
 type StateRowProps = {
     name: string;

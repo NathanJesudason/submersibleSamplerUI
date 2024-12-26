@@ -58,7 +58,7 @@ export const ValveCollection = ({ valves }: { valves: Valve[] }) => {
 export const ValveStatus = ({ className }: { className?: string }) => {
     const status = useSelector(state => state.status);
     const valves = useMemo(() => {
-        return times(24, (id: number) => {
+        return times(status.valves ? status.valves.length : 0, (id: number) => {
             return status.valves && id < status.valves.length
                 ? { id, status: status.valves[id] }
                 : { id, status: -1 };
@@ -67,7 +67,7 @@ export const ValveStatus = ({ className }: { className?: string }) => {
 
     const [top, bottom] = partition(valves, ({ id }) => id < 12);
     return (
-        <Card title="Pump Status" tw="p-0" className={className}>
+        <Card title="Channel Status" tw="p-0" className={className}>
             <ValveCollection valves={top.concat(bottom.reverse())} />
 
             <div tw="grid grid-flow-col gap-8 auto-cols-max">

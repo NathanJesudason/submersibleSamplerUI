@@ -66,18 +66,21 @@ const UpdateRTC = () => (
                 timezoneOffset: new Date().getTimezoneOffset(),
             };
 
-            post("api/rtc/update").withJson(payload).send().then(() => {
-              alert("RTC Updated");
-            });
+            post("api/rtc/update")
+                .withJson(payload)
+                .send()
+                .then(() => {
+                    alert("RTC Updated");
+                });
         }}
     />
 );
 
 const ResetValves = () => (
     <Utility
-        name={"Reset Pumps"}
+        name={"Reset Channels"}
         description={
-            "This utility all valves to its default configuration from the config.js file inthe sdcard"
+            "This utility all valves to its default configuration from the config.js file in the sdcard"
         }
         onClick={() => {
             const message = "Do you want to reset all the valves to their default configurations";
@@ -85,7 +88,6 @@ const ResetValves = () => (
         }}
     />
 );
-
 
 export function Utilities() {
     return (

@@ -90,9 +90,9 @@ export const generalFields: FieldProps[] = [
 export const valveFields: FieldProps[] = [
     {
         name: "pumps",
-        label: "Pumps",
-        sublabel: "Pumps asigned to this task",
-        helperText: "Comma-separated pump numbers & ranges: eg. 1,3-8,21",
+        label: "Channels",
+        sublabel: "Channels asigned to this task",
+        helperText: "Comma-separated channel ranges: eg. 1,3-8,21",
     },
     {
         name: "timeBetween",
@@ -109,7 +109,12 @@ export const sampleFields: FieldProps[] = [
 
 export const preserveFields: FieldProps[] = [
     { name: "preserveTime", type: "number", label: "Preserve Time", helperText: "Unit: second" },
-    { name: "preserveDrawTime", type: "number", label: "Preserve Draw Time", helperText: "Unit: second" },
+    {
+        name: "preserveDrawTime",
+        type: "number",
+        label: "Preserve Draw Time",
+        helperText: "Unit: second",
+    },
 ];
 
 export type ConfigSectionName = "general" | "pumps" | "sample" | "preserve";
