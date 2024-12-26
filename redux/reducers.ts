@@ -42,7 +42,7 @@ const makeMock = (id: string, status: number) => ({
     name: "DEMO",
     notes: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, debitis",
     status,
-    valves: [],
+    pumps: [],
     sampleTime: 0,
     preserveDrawTime: 0,
     preserveTime: 0,
